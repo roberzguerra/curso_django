@@ -1,0 +1,16 @@
+<!--
+#Autor:guerra
+#Data: 29/12/11
+#Ultima alteracao:
+-->
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Formulário de inscrição</h1>
+
+    <form action="." method="POST">{% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Enviar!" class="button">
+    </form>
+{% endblock %}

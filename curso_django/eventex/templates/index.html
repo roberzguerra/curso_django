@@ -1,0 +1,35 @@
+<!--
+#Autor:guerra
+#Data: 28/12/11
+#Ultima alteracao:
+-->
+
+{% extends "base.html" %}
+{% block content %}
+    <h1>Bem-vindo ao EventeX!</h1>
+    <p>O evento mais sensacional do ano depois do Dev in Rio!</p>
+    <p>Você não pode perder esta oportunidade!</p>
+    <p><strong>
+        <a href="{% url subscription:subscribe %}">Inscreva-se já!</a>
+    </strong></p>
+    <p>Para dúvidas e mais informações entre em contatocom
+        <a href="mailto:eventex@eventex.com.br">eventex@eventex.com.br</a></p>
+{% endblock %}
+
+<body>
+    <img src="{{ STATIC_URL }}img/logo.png"  alt="" title=""/>
+    <h1>Parabéns {{ subscription.name }}!</h1>
+    <p>
+        Sua inscrição foi realizada em
+        {{ subscription.create_at|date:"d/m/Y" }}
+    </p>
+    <p>
+        Em breve alguém entrará em contato pelo
+        {% if subscription.phone %}
+            telefone {{ subscription.phone }}
+        {% else %}
+            e-mail {{ subscription.email }}
+        {% endif %}
+    </p>
+</body>
+</html>
